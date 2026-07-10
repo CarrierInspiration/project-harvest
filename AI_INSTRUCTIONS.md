@@ -1,3 +1,24 @@
+---
+document_id: PH-901
+title: AI Instructions
+version: 1.0.0
+status: Approved
+project: Project Harvest
+product: CAP Market
+company: Carrier's Abundant Produce
+author: Bryce Carrier
+created: 2026-07-10
+last_updated: 2026-07-10
+category: Repository
+tags:
+  - ai
+  - instructions
+  - governance
+related_documents:
+  - PH-900
+  - PH-000
+---
+
 # AI Instructions
 
 ## Project
@@ -106,20 +127,16 @@ Read the relevant specification.
 Examples:
 
 Customer login
-
-→ specifications/03 Customer Experience.md
+→ **PH-003 Customer Experience Specification.md**
 
 Inventory
-
-→ specifications/04 Operations.md
+→ **PH-004 Operations Specification.md**
 
 Business logic
-
-→ specifications/06 Business Rules.md
+→ **PH-006 Business Rules Specification.md**
 
 Database
-
-→ specifications/05 Data.md
+→ **PH-005 Data Specification.md**
 
 Never assume.
 
@@ -288,5 +305,12 @@ Build software that people enjoy using.
 The greatest compliment is not that the software is powerful.
 
 The greatest compliment is:
-
 > "That was easy."
+
+---
+
+# Revision History
+
+| Version | Date | Summary |
+|---------|------|---------|
+| 1.0.0 | 2026-07-10 | Added YAML
