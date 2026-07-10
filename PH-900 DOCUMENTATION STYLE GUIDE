@@ -302,6 +302,68 @@ Avoid abbreviations where practical.
 
 ---
 
+# Document Numbering System
+
+Every Project Harvest document receives a permanent Document ID.
+
+Document IDs remain stable even if the document title or file name changes.
+
+The format is:
+
+PH-XXX
+
+where:
+
+- PH = Project Harvest
+- XXX = Three-digit document number
+
+Document numbers are grouped by category.
+
+| Range | Category |
+|--------|----------|
+| PH-000 – PH-099 | Product Specifications |
+| PH-100 – PH-199 | Design |
+| PH-200 – PH-299 | Database |
+| PH-300 – PH-399 | API |
+| PH-400 – PH-499 | Development |
+| PH-500 – PH-599 | Testing |
+| PH-600 – PH-699 | Research |
+| PH-700 – PH-799 | Architecture |
+| PH-800 – PH-899 | Architecture Decision Records (ADRs) |
+| PH-900 – PH-999 | Repository Standards & Governance |
+
+Document IDs are never reused.
+
+If a document is renamed, deprecated, or archived, its Document ID remains permanently assigned.
+
+Examples:
+
+| Document ID | Title |
+|-------------|-------|
+| PH-000 | Master Specification |
+| PH-001 | Vision Specification |
+| PH-002 | Brand Specification |
+| PH-003 | Customer Experience Specification |
+| PH-004 | Operations Specification |
+| PH-005 | Data Specification |
+| PH-006 | Business Rules Specification |
+| PH-007 | Future Roadmap Specification |
+| PH-008 | Product Principles Specification |
+| PH-900 | Documentation Style Guide |
+| PH-901 | AI Instructions |
+
+The Document ID should appear in:
+
+- The YAML front matter.
+- The file name (recommended).
+- Cross-references between documents.
+
+Example:
+
+See **PH-006 Business Rules Specification**.
+
+---
+
 # YAML Front Matter
 
 Every Markdown document except `README.md` must begin with YAML front matter.
