@@ -313,4 +313,4 @@ The greatest compliment is:
 
 | Version | Date | Summary |
 |---------|------|---------|
-| 1.0.0 | 2026-07-10 | Added YAML
+| 1.0.0 | 2026-07-10 | Added YAML front matter and corrected specification path references to match PH-900 File Naming standard. |
