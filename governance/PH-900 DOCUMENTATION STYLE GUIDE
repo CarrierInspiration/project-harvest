@@ -1,0 +1,76 @@
+---
+document_id: PH-900
+title: Documentation Style Guide
+version: 2.0.0
+status: Approved
+project: Project Harvest
+product: CAP Market
+company: Carrier's Abundant Produce
+author: Bryce Carrier
+created: 2026-07-10
+last_updated: 2026-07-11
+category: Repository
+tags:
+  - documentation
+  - standards
+  - markdown
+  - repository
+related_documents:
+  - PH-901
+---
+
+# Documentation Style Guide
+
+## Purpose
+
+This document establishes the documentation standards for Project Harvest.
+
+Its purpose is to keep documents clear, consistent, and easy for both humans and AI assistants to interpret correctly.
+
+When in doubt, follow this guide.
+
+This guide covers only what the project needs today. Sections for document types that don't exist yet (Business Rules, User Stories, Screen Specs, etc.) will be added when those documents are actually written.
+
+---
+
+# Writing Style
+
+Documentation should be clear, accurate, concise, and consistent.
+
+Use professional, conversational English. Write in complete sentences. Prefer active voice. Keep paragraphs short. Avoid unnecessary jargon.
+
+Avoid humor, marketing language, and personal opinions in specifications.
+
+---
+
+# Conventions
+
+**Capitalization** — Capitalize official names: Project Harvest, CAP Market, Carrier's Abundant Produce. Use lowercase for generic nouns ("the customer places an order").
+
+**Terminology** — Use one term consistently per concept: Customer, Employee, Owner, Product, Inventory, Inventory Event, Packaging Batch, Supplier, Delivery, Order, Payment, Dashboard.
+
+**Dates** — ISO 8601 format. Example: 2026-07-10.
+
+**Currency** — K150 for Zambian Kwacha. Use ISO currency codes (ZMW, USD) if multiple currencies are ever supported.
+
+**Measurements** — Always include units. Example: 5 kg, 200 kg.
+
+**Numbers** — Spell out one through nine in prose. Use numerals for measurements, prices, IDs, and quantities.
+
+---
+
+# Formatting
+
+Use standard GitHub Flavored Markdown with ATX headings (`#`, `##`, `###`), never skipping levels.
+
+Use bold sparingly — reserve it for important concepts, definitions, and warnings.
+
+Use unordered lists for collections, numbered lists for sequences, and tables for structured comparisons.
+
+Use fenced code blocks with a specified language when including code or config.
+
+---
+
+# File Naming
+
+Specification documents follow this format:
