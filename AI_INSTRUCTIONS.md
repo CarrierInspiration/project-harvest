@@ -91,38 +91,9 @@ Every implementation should support one or more of these principles.
 
 ---
 
-# Design Philosophy
-
-The interface should feel:
-
-- Clean
-- Friendly
-- Calm
-- Fast
-- Honest
-- Professional
-
-Avoid unnecessary complexity.
-
-Every screen should have one primary purpose.
-
----
-
-# Business Philosophy
-
-Technology exists to support the business.
-
-The business does not exist to support the technology.
-
-Whenever a technical decision conflicts with usability, prefer the solution that is easiest for the user to understand.
-
----
-
 # Documentation First
 
-Before implementing a feature:
-
-Read the relevant specification.
+Before implementing a feature, read the relevant specification.
 
 Examples:
 
@@ -138,115 +109,7 @@ Business logic
 Database
 → **PH-005 Data Specification.md**
 
-Never assume.
-
-Always verify.
-
----
-
-# Simplicity
-
-When choosing between two solutions:
-
-Choose the simpler one.
-
-If both satisfy the requirements equally well:
-
-Choose the one that will be easier to maintain five years from now.
-
----
-
-# Architecture
-
-Build modular software.
-
-Prefer small, focused components.
-
-Avoid unnecessary dependencies.
-
-Write reusable code.
-
-Avoid duplication.
-
----
-
-# User Experience
-
-The user should rarely need instructions.
-
-Interfaces should feel obvious.
-
-Every additional tap should have a clear purpose.
-
----
-
-# Performance
-
-Optimize for responsiveness.
-
-Avoid unnecessary loading.
-
-Design for slow mobile networks.
-
-Design for lower-end Android devices.
-
-Minimize bandwidth usage.
-
----
-
-# Accessibility
-
-Use readable typography.
-
-Provide sufficient color contrast.
-
-Support screen readers where possible.
-
-Ensure touch targets are large enough.
-
-Never rely on color alone to communicate important information.
-
----
-
-# Security
-
-Validate all input.
-
-Never expose sensitive information.
-
-Follow the principle of least privilege.
-
-Protect customer data.
-
-Protect employee data.
-
-Protect financial data.
-
----
-
-# Data Integrity
-
-Data accuracy is more important than convenience.
-
-Inventory should never become inconsistent.
-
-Financial records should be traceable.
-
-Every inventory change should be recorded as an event.
-
-Never silently modify historical data.
-
----
-
-# Error Handling
-
-Provide helpful error messages.
-
-Never expose technical stack traces to users.
-
-Log errors appropriately.
-
-Recover gracefully whenever possible.
+Never assume. Always verify.
 
 ---
 
@@ -261,40 +124,6 @@ Do not invent business rules.
 Do not make assumptions.
 
 Do not create features outside the documented scope.
-
----
-
-# Coding Standards
-
-Write readable code.
-
-Prefer clarity over cleverness.
-
-Use descriptive names.
-
-Keep functions small.
-
-Document complex logic.
-
-Remove unused code.
-
----
-
-# Documentation
-
-If implementation changes an approved specification:
-
-Update the documentation.
-
-Documentation and implementation must remain synchronized.
-
----
-
-# Long-Term Vision
-
-This project is intended to become the operating platform for Carrier's Abundant Produce.
-
-Design every feature with future growth in mind while keeping Version 1 intentionally simple.
 
 ---
 
@@ -313,4 +142,4 @@ The greatest compliment is:
 
 | Version | Date | Summary |
 |---------|------|---------|
-| 1.0.0 | 2026-07-10 | Added YAML front matter and corrected specification path references to match PH-900 File Naming standard. |
+| 1.0.0 | 2026-07-10 | Added YAML front matter, corrected specification path references, and trimmed redundant sections already covered in PH-900. |
