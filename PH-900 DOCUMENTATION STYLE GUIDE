@@ -1,14 +1,14 @@
 ---
 document_id: PH-900
 title: Documentation Style Guide
-version: 1.0.0
+version: 2.0.0
 status: Approved
 project: Project Harvest
 product: CAP Market
 company: Carrier's Abundant Produce
 author: Bryce Carrier
 created: 2026-07-10
-last_updated: 2026-07-10
+last_updated: 2026-07-11
 category: Repository
 tags:
   - documentation
@@ -25,562 +25,53 @@ related_documents:
 
 This document establishes the documentation standards for Project Harvest.
 
-Its purpose is to ensure that every document is written consistently, remains easy to understand, and can be interpreted accurately by both humans and AI assistants.
+Its purpose is to keep documents clear, consistent, and easy for both humans and AI assistants to interpret correctly.
 
 When in doubt, follow this guide.
 
----
-
-# Guiding Principles
-
-Documentation should always be:
-
-- Clear
-- Accurate
-- Concise
-- Complete
-- Consistent
-- Maintainable
-
-Documentation should explain decisions rather than merely describe features.
-
-Whenever possible, prefer explicit definitions over implied behavior.
-
----
-
-# Audience
-
-Documentation is written for:
-
-1. Business owners
-2. Designers
-3. Developers
-4. AI assistants
-5. Future contributors
-
-Every document should be understandable without requiring previous conversations.
+This guide covers only what the project needs today. Sections for document types that don't exist yet (Business Rules, User Stories, Screen Specs, etc.) will be added when those documents are actually written.
 
 ---
 
 # Writing Style
 
-Use professional, conversational English.
+Documentation should be clear, accurate, concise, and consistent.
 
-Write in complete sentences.
+Use professional, conversational English. Write in complete sentences. Prefer active voice. Keep paragraphs short. Avoid unnecessary jargon.
 
-Prefer active voice.
-
-Keep paragraphs short.
-
-Avoid unnecessary jargon.
-
-Explain technical concepts when they first appear.
+Avoid humor, marketing language, and personal opinions in specifications.
 
 ---
 
-# Voice
+# Conventions
 
-Documentation should be:
+**Capitalization** — Capitalize official names: Project Harvest, CAP Market, Carrier's Abundant Produce. Use lowercase for generic nouns ("the customer places an order").
 
-- Professional
-- Friendly
-- Objective
-- Direct
+**Terminology** — Use one term consistently per concept: Customer, Employee, Owner, Product, Inventory, Inventory Event, Packaging Batch, Supplier, Delivery, Order, Payment, Dashboard.
 
-Avoid:
+**Dates** — ISO 8601 format. Example: 2026-07-10.
 
-- Humor
-- Marketing language
-- Emotional language
-- Personal opinions
+**Currency** — K150 for Zambian Kwacha. Use ISO currency codes (ZMW, USD) if multiple currencies are ever supported.
+
+**Measurements** — Always include units. Example: 5 kg, 200 kg.
+
+**Numbers** — Spell out one through nine in prose. Use numerals for measurements, prices, IDs, and quantities.
 
 ---
 
-# Capitalization
+# Formatting
 
-Always capitalize official names.
+Use standard GitHub Flavored Markdown with ATX headings (`#`, `##`, `###`), never skipping levels.
 
-Examples:
+Use bold sparingly — reserve it for important concepts, definitions, and warnings.
 
-- Project Harvest
-- CAP Market
-- Carrier's Abundant Produce
-- Customer Experience
-- Business Rules
-- Product Principles
+Use unordered lists for collections, numbered lists for sequences, and tables for structured comparisons.
 
-Use lowercase for generic nouns.
-
-Example:
-
-"The customer places an order."
-
----
-
-# Terminology
-
-Use one term consistently for each concept.
-
-Preferred terminology includes:
-
-- Customer
-- Employee
-- Owner
-- Product
-- Inventory
-- Inventory Event
-- Packaging Batch
-- Supplier
-- Delivery
-- Order
-- Payment
-- Dashboard
-
-Avoid switching between synonyms unless they represent different concepts.
-
----
-
-# Dates
-
-Use ISO 8601 format.
-
-Example:
-
-2026-07-10
-
----
-
-# Currency
-
-Use:
-
-K150
-
-When multiple currencies are supported, use ISO currency codes.
-
-Example:
-
-ZMW
-
-USD
-
----
-
-# Measurements
-
-Always include units.
-
-Examples:
-
-5 kg
-
-200 kg
-
-2 L
-
-500 g
-
----
-
-# Numbers
-
-Spell out numbers one through nine in prose.
-
-Use numerals for:
-
-- Measurements
-- Prices
-- IDs
-- Quantities
-- Database fields
-- Calculations
-
----
-
-# Markdown
-
-Use standard GitHub Flavored Markdown.
-
-Use fenced code blocks.
-
-Specify languages whenever possible.
-
-Prefer Markdown tables over screenshots.
-
----
-
-# Headings
-
-Use ATX headings.
-
-Example:
-
-```markdown
-# Heading
-
-## Section
-
-### Subsection
-```
-
-Never skip heading levels.
-
----
-
-# Emphasis
-
-Use bold sparingly.
-
-Reserve bold text for:
-
-- Important concepts
-- Definitions
-- Warnings
-
-Avoid excessive formatting.
-
----
-
-# Lists
-
-Use unordered lists for collections.
-
-Use numbered lists for sequential processes.
-
----
-
-# Tables
-
-Use Markdown tables for structured comparisons.
-
-Example:
-
-| Role | Access |
-|------|--------|
-| Owner | Full |
-| Employee | Limited |
-
----
-
-# Diagrams
-
-Prefer Mermaid diagrams for workflows.
-
-Example:
-
-```mermaid
-flowchart TD
-
-A[Receive Inventory]
---> B[Create Inventory Lot]
---> C[Update Inventory]
-```
-
-Use diagrams only when they improve clarity.
+Use fenced code blocks with a specified language when including code or config.
 
 ---
 
 # File Naming
 
-Specification documents should follow this format:
+Specification documents follow this format:
 
-```
-PH-000 Master Specification.md
-PH-001 Vision Specification.md
-PH-002 Brand Specification.md
-PH-003 Customer Experience Specification.md
-PH-004 Operations Specification.md
-PH-005 Data Specification.md
-PH-006 Business Rules Specification.md
-PH-007 Future Roadmap Specification.md
-PH-008 Product Principles Specification.md
-```
-
-Use descriptive names.
-
-Avoid abbreviations where practical.
-
----
-
-# Document Numbering System
-
-Every Project Harvest document receives a permanent Document ID.
-
-Document IDs remain stable even if the document title or file name changes.
-
-The format is:
-
-PH-XXX
-
-where:
-
-- PH = Project Harvest
-- XXX = Three-digit document number
-
-Document numbers are grouped by category.
-
-| Range | Category |
-|--------|----------|
-| PH-000 – PH-099 | Product Specifications |
-| PH-100 – PH-199 | Design |
-| PH-200 – PH-299 | Database |
-| PH-300 – PH-399 | API |
-| PH-400 – PH-499 | Development |
-| PH-500 – PH-599 | Testing |
-| PH-600 – PH-699 | Research |
-| PH-700 – PH-799 | Architecture |
-| PH-800 – PH-899 | Architecture Decision Records (ADRs) |
-| PH-900 – PH-999 | Repository Standards & Governance |
-
-Document IDs are never reused.
-
-If a document is renamed, deprecated, or archived, its Document ID remains permanently assigned.
-
-Examples:
-
-| Document ID | Title |
-|-------------|-------|
-| PH-000 | Master Specification |
-| PH-001 | Vision Specification |
-| PH-002 | Brand Specification |
-| PH-003 | Customer Experience Specification |
-| PH-004 | Operations Specification |
-| PH-005 | Data Specification |
-| PH-006 | Business Rules Specification |
-| PH-007 | Future Roadmap Specification |
-| PH-008 | Product Principles Specification |
-| PH-900 | Documentation Style Guide |
-| PH-901 | AI Instructions |
-
-The Document ID should appear in:
-
-- The YAML front matter.
-- The file name (recommended).
-- Cross-references between documents.
-
-Example:
-
-See **PH-006 Business Rules Specification**.
-
----
-
-# YAML Front Matter
-
-Every Markdown document except `README.md` must begin with YAML front matter.
-
-Standard fields:
-
-- document_id
-- title
-- version
-- status
-- project
-- product
-- company
-- author
-- created
-- last_updated
-- category
-- tags
-- related_documents
-
-Do not remove fields unless the project standard changes.
-
----
-
-# Status Values
-
-Approved values are:
-
-- Draft
-- In Review
-- Approved
-- Deprecated
-- Archived
-
----
-
-# Requirement Keywords
-
-Use these words consistently.
-
-**Must**
-
-Mandatory requirement.
-
-**Should**
-
-Strong recommendation.
-
-**May**
-
-Optional behavior.
-
-Avoid using "can" when writing requirements.
-
----
-
-# Document Cross-Referencing
-
-When another specification defines a concept, reference that specification instead of duplicating the content.
-
-Example:
-
-See **PH-006 Business Rules Specification**.
-
-This helps maintain a single source of truth.
-
----
-
-# Business Rules
-
-Business Rules should use the following format:
-
-```
-BR-001
-
-Title
-
-Description
-
-Rationale
-
-Dependencies
-```
-
-Business Rule IDs must remain stable over time.
-
----
-
-# User Stories
-
-Format:
-
-```
-US-001
-
-As a customer,
-
-I want...
-
-So that...
-```
-
----
-
-# Screen Specifications
-
-Every screen should include:
-
-- Screen ID
-- Name
-- Purpose
-- Primary User
-- Navigation
-- Components
-- User Actions
-- Validation
-- Edge Cases
-- Future Enhancements
-
----
-
-# Database Specifications
-
-Each table should include:
-
-- Purpose
-- Fields
-- Relationships
-- Validation Rules
-- Indexes
-- Future Fields
-
----
-
-# Workflow Specifications
-
-Every workflow should include:
-
-- Purpose
-- Trigger
-- Inputs
-- Steps
-- Outputs
-- Success Criteria
-- Failure Cases
-- Business Rules
-- Related Screens
-- Related Documents
-
----
-
-# Versioning
-
-Version numbers follow Semantic Versioning.
-
-Examples:
-
-1.0.0
-
-1.1.0
-
-2.0.0
-
-Major changes increase the first number.
-
-New functionality increases the second.
-
-Minor corrections increase the third.
-
----
-
-# AI Compatibility
-
-Documentation should be optimized for AI interpretation.
-
-Prefer:
-
-- Explicit definitions
-- Structured headings
-- Stable terminology
-- Unique identifiers
-- Cross references
-
-Avoid ambiguous language.
-
----
-
-# Single Source of Truth
-
-Every concept should have one authoritative definition.
-
-Do not duplicate business rules across multiple documents.
-
-Instead, reference the original specification.
-
----
-
-# Revision Policy
-
-Approved changes must update the relevant specification.
-
-Documentation and implementation should remain synchronized.
-
-Specifications define intended behavior.
-
-Code implements that behavior.
-
----
-
-# Final Principle
-
-When documentation and assumptions conflict:
-
-Trust the documentation.
-
-When documentation is unclear:
-
-Ask.
-
-Never guess.
