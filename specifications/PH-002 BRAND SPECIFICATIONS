@@ -1,0 +1,109 @@
+---
+document_id: PH-002
+title: Brand Specification
+version: 2.0.0
+status: Draft
+project: Project Harvest
+product: CAP Market
+company: Carrier's Abundant Produce
+author: Bryce Carrier
+created: 2026-07-10
+last_updated: 2026-07-11
+category: Specification
+tags:
+  - brand
+  - identity
+  - logo
+related_documents:
+  - PH-000
+  - PH-001
+---
+
+# Brand Specification
+
+## Purpose
+
+This document defines the visual identity of CAP Market: the logo, its approved variations, and the current status of brand colors. It exists so that anyone — designer, developer, or AI — uses the correct, current assets rather than guessing or inventing new ones.
+
+This document does not cover Vision or Mission (see PH-001) or Customer Experience (see PH-003).
+
+---
+
+# Logo
+
+## Concept
+
+The CAP Market mark is a circular "C" form (echoing both "CAP" and "circle of provision") built from a basket containing a grain stalk, leaves, and produce. The open arc of the "C" doubles as the basket's rim.
+
+Design intent, as stated by the concept itself:
+
+- Simple
+- Memorable
+- Scalable
+- Timeless
+- Trusted
+
+## Approved Variations
+
+Two lockups are confirmed and available for use. Each exists in both a transparent-background export and a white-background export.
+
+### 1. Icon Only
+
+The circular basket mark on its own, with no wordmark. Used where space is limited or the mark needs to stand alone — app icon, favicon, social profile image, packaging accents.
+
+### 2. Horizontal Lockup
+
+Icon on the left, paired with the "CAP MARKET" wordmark and the tagline "ABUNDANCE · HEALTHY FOOD · CONVENIENCE" stacked beneath the wordmark, arranged side-by-side. Used for headers, primary branding surfaces, and any placement wide enough to accommodate the full lockup.
+
+### Not Yet Finalized
+
+A stacked lockup (icon above, wordmark below) was referenced in earlier concept work but has not been finalized or uploaded as an asset. It should not be treated as approved until a confirmed file exists. This document will be updated when it is.
+
+## File Status
+
+No production vector file (SVG/AI/EPS) currently exists. The available assets are PNG exports of the concept, at the resolutions and background variants noted above. Before this mark is used in production (app builds, printed packaging, signage), it should be redrawn or exported as a proper vector file — either by regenerating from the original design source or by commissioning a designer to vectorize the existing concept.
+
+---
+
+# Color
+
+**Status: No color palette is approved.**
+
+The mark is currently black-on-white only, and should remain black-on-white (or black on a light/neutral background) in all V1 uses.
+
+A colorized version of this logo was explored and was explicitly rejected. Green/gold or any other brand color palette should not be introduced without explicit direction. Anyone extending this brand — including AI assistance — should treat the absence of color as the current deliberate state, not an oversight to be filled in.
+
+---
+
+# Usage Guidelines
+
+- Use the icon-only mark for small or square placements (app icon, favicon).
+- Use the horizontal lockup wherever the full wordmark and tagline fit.
+- Use the transparent-background export when placing the logo over a colored or textured surface (e.g. packaging photography, delivery truck livery).
+- Use the white-background export where a transparent file isn't supported or a clean rectangle is preferred.
+- Do not stretch, recolor, rotate, or alter the proportions of the mark.
+- Do not use a stacked lockup — none is currently approved.
+
+---
+
+# Open Items
+
+- No approved color palette (deliberately deferred).
+- No stacked lockup (not yet finalized or uploaded).
+- No production vector file exists.
+
+---
+
+# References
+
+- PH-000 Master Specification
+- PH-001 Vision Specification
+
+---
+
+# Revision History
+
+| Version | Date | Summary |
+|---------|------|---------|
+| 1.0.0 | — | Generic placeholder brand spec (green/gold palette, generic icon description) — superseded, not committed. |
+| 2.0.0 | 2026-07-11 | Rewritten to reflect the real logo concept: icon-only and horizontal lockups confirmed, each with transparent and white-background exports. Color palette status clarified as unapproved. Stacked lockup noted as not yet finalized. |
