@@ -78,17 +78,13 @@ Every decision made during development should align with these principles:
 
 # Repository Structure
 
-```text
-specifications/    Product specifications and documentation
-design/            Branding, UI, wireframes, and design assets
-database/          Database schema and data models
-api/               API specifications
-frontend/          Customer-facing application
-backend/           Server-side application
-prompts/           AI prompts for development tools
-assets/            Shared project assets
-changelog/         Project history and release notes
 ```
+specifications/    Product specifications and documentation
+governance/        Repository standards and AI instructions
+```
+
+Additional folders (design/, database/, api/, frontend/, backend/, prompts/, assets/, changelog/) will be created as the project reaches those stages.
+
 
 ---
 
