@@ -74,6 +74,45 @@ CAP Market is the primary digital platform supporting this mission.
 
 The software should faithfully reflect real-world business operations while remaining simple enough for daily use by customers and employees.
 
+------
+
+# Business Model Reality
+
+This section documents the actual current operating economics of Carrier's Abundant Produce as of 2026-07-10. It exists to ground the specification in real numbers rather than assumptions, and will be expanded into a full Data Specification (PH-005) and Business Rules Specification (PH-006) as those documents are written.
+
+## Current Product and Channel
+
+CAP currently sells Nakonde rice in Lusaka West. A 200 kg bulk bag is purchased and repackaged into approximately 41 five kg bags for individual sale.
+
+## Starting Capital
+
+The business began with approximately K8,000 in initial capital.
+
+## Unit Economics
+
+| Metric | Value |
+|--------|-------|
+| Cost per 5 kg bag | ~K107 |
+| Standard selling price range | K150–K165 |
+| Bags per 200 kg sack | ~41 |
+| Estimated gross profit per sack | K1,760–K2,380 |
+
+Prices vary by customer rather than following a single fixed rate. Every price must have a documented reason.
+
+## Pricing Reasons
+
+Version 1 must support recording *why* a customer received a given price, not just the price itself. Recognized pricing reasons include:
+
+- **Referral** — the customer was introduced to CAP by another individual.
+- **Delivery Assistance** — the customer helps deliver product to other customers.
+- **Distribution Branch** — the customer acts as a local distribution point, supplying other customers on CAP's behalf.
+- **Bulk Purchase** — the customer buys in larger quantities. Bulk pricing currently has multiple tiers; exact tier thresholds and discounts are intentionally not formalized yet, as they remain subjective and evolving.
+- **Financial Hardship** — a discretionary discount extended based on the Owner's personal knowledge of a customer's circumstances. This reason is judgment-based and does not follow a fixed formula.
+
+These reasons should be recorded per order or per customer relationship so that pricing decisions remain traceable over time, consistent with the *Truth Above All* and *Every Action Is Recorded* Product Principles.
+
+Formal business rules governing bulk pricing tiers and discount logic will be defined in **PH-006 Business Rules Specification** once those tiers are ready to be standardized.
+
 ---
 
 # Target Users
