@@ -1,0 +1,73 @@
+---
+document_id: PH-001
+title: Vision Specification
+version: 1.0.0
+status: Approved
+project: Project Harvest
+product: CAP Market
+company: Carrier's Abundant Produce
+author: Bryce Carrier
+created: 2026-07-11
+last_updated: 2026-07-11
+category: Specification
+tags:
+  - vision
+  - mission
+  - values
+related_documents:
+  - PH-000
+---
+
+# Vision Specification
+
+## Purpose
+
+This document defines why CAP Market exists and what it is working toward. It expands on the Vision reference in **PH-000 Master Specification**.
+
+---
+
+# Vision
+
+To become Zambia's most trusted neighborhood food marketplace by making it remarkably easy for every family to purchase healthy food.
+
+---
+
+# Mission
+
+To make healthy food affordable, accessible, and convenient while serving every customer with honesty, excellence, and care.
+
+---
+
+# Core Values
+
+**Abundance**
+Families should have access to plentiful, quality food.
+
+**Integrity**
+Prices are honest. Weights are accurate. Promises are fulfilled.
+
+**Stewardship**
+Food, money, inventory, and relationships are carefully managed.
+
+**Excellence**
+Every package, order, and interaction reflects quality.
+
+**Simplicity**
+The easiest solution is usually the best solution.
+
+**Service**
+People matter more than transactions.
+
+---
+
+# Scope Note
+
+This document defines vision, mission, and values only. Brand identity (logo, color, typography) belongs in a future PH-002 Brand Specification, to be written when those decisions are actually needed for design work.
+
+---
+
+# Revision History
+
+| Version | Date | Summary |
+|---------|------|---------|
+| 1.0.0 | 2026-07-11 | Initial Vision Specification. |
