@@ -1,0 +1,231 @@
+---
+document_id: PH-005
+title: Data Specification
+version: 1.0.0
+status: Draft
+project: Project Harvest
+product: CAP Market
+company: Carrier's Abundant Produce
+author: Bryce Carrier
+created: 2026-07-11
+last_updated: 2026-07-11
+category: Specification
+tags:
+  - data
+  - entities
+  - schema
+related_documents:
+  - PH-000
+  - PH-003
+---
+
+# Data Specification
+
+## Purpose
+
+This document defines the core data entities for CAP Market V1: what they are, the fields each one holds, and how they relate to each other. It is the reference every other specification and, eventually, every database/API design should point back to.
+
+Only entities needed for the scope defined in PH-000 (Version Scope) and PH-003 (Customer Experience) are included. Entities for deferred features (loyalty, promotions, wholesale, supplier/farmer portals, barcode scanning, multi-branch, driver app) are intentionally excluded until those features are actually being built.
+
+---
+
+# Entity Overview
+
+CAP Market V1 revolves around a simple chain:
+
+```
+Supplier Delivery → Inventory Lot → Packaging Batch → Product Stock → Order → Delivery/Pickup
+```
+
+Core entities:
+
+- User
+- Product
+- Inventory Lot
+- Packaging Batch
+- Order
+- Order Item
+- Pricing Reason
+- Delivery
+
+---
+
+# User
+
+Represents anyone who logs into CAP Market — Customer, Employee, or Owner. A single entity with a role, rather than separate tables per role, since V1 has no need for role-specific fields beyond what's listed here.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| id | identifier | Unique, system-generated |
+| phone_number | string | Used for OTP login; unique |
+| name | string | |
+| role | enum | `customer`, `employee`, `owner` |
+| created_at | datetime | |
+
+**Notes:**
+- Authentication is phone number + OTP (see PH-003). No password is stored.
+- Financial Hardship pricing (see Pricing Reason below) is based on the owner's personal knowledge of a customer's situation, not a field the customer self-reports.
+
+---
+
+# Product
+
+Represents an item customers can order. V1 has a single product (Nakonde rice, 5 kg bags), but the entity is structured to support additional products as the business expands, per the "Abundant Produce" vision.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| id | identifier | |
+| name | string | e.g. "Nakonde Rice — 5kg Bag" |
+| unit_size | string | e.g. "5kg" |
+| base_price | decimal | Standard price before any Pricing Reason is applied (K150–K165 range currently) |
+| is_active | boolean | Whether the product is currently orderable |
+
+---
+
+# Inventory Lot
+
+Represents a bulk quantity of a product received from a supplier, before it's broken down into sellable units. Example: a 200kg bulk bag of Nakonde rice.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| id | identifier | |
+| product_id | reference | Links to Product |
+| bulk_quantity_kg | decimal | e.g. 200 |
+| cost | decimal | What CAP paid for this lot |
+| received_date | date | |
+| status | enum | `received`, `in_packaging`, `depleted` |
+
+---
+
+# Packaging Batch
+
+Represents the event of converting an Inventory Lot into sellable retail units (e.g. breaking a 200kg bag into ~41 five-kg bags).
+
+| Field | Type | Notes |
+|-------|------|-------|
+| id | identifier | |
+| inventory_lot_id | reference | Links to the source Inventory Lot |
+| product_id | reference | The resulting retail product |
+| units_produced | integer | e.g. 41 |
+| packaged_by | reference | Links to the Employee (User) who packaged it |
+| packaged_date | date | |
+
+**Notes:**
+- Units produced from a Packaging Batch become available Product Stock (see below).
+
+---
+
+# Product Stock
+
+Represents current sellable inventory for a Product — the running count of packaged units available to sell.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| product_id | reference | Links to Product |
+| quantity_available | integer | Current count of sellable units |
+| last_updated | datetime | |
+
+**Notes:**
+- Increases when a Packaging Batch completes.
+- Decreases when an Order is placed (or confirmed, depending on business rule — to be defined in PH-006).
+
+---
+
+# Pricing Reason
+
+Represents the discretionary reason a specific price was applied to a customer's order, as described in PH-000's Business Model Reality section.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| id | identifier | |
+| name | enum | `Referral`, `Delivery Assistance`, `Distribution Branch`, `Bulk Purchase`, `Financial Hardship`, `Standard` |
+| description | string | Free text, optional |
+
+**Notes:**
+- Bulk Purchase tiers are not yet formalized (per PH-000) — V1 should allow this reason to be recorded without enforcing specific quantity thresholds.
+- Financial Hardship is applied at the owner's discretion, not by any automated rule.
+- The exact discount logic per reason belongs in PH-006 Business Rules, not here — this entity only records *which* reason applies.
+
+---
+
+# Order
+
+Represents a customer's request to purchase one or more Products.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| id | identifier | |
+| customer_id | reference | Links to User (role = customer) |
+| status | enum | `pending`, `confirmed`, `fulfilled`, `cancelled` |
+| pricing_reason_id | reference | Links to Pricing Reason applied |
+| total_price | decimal | Computed from Order Items |
+| created_at | datetime | |
+
+---
+
+# Order Item
+
+Represents a single product line within an Order. Separated from Order to support multiple products per order as the catalog grows beyond rice.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| id | identifier | |
+| order_id | reference | Links to Order |
+| product_id | reference | Links to Product |
+| quantity | integer | Number of units ordered |
+| unit_price | decimal | Price applied to this line, after Pricing Reason |
+
+---
+
+# Delivery
+
+Represents the fulfillment of an Order, whether by pickup or delivery. Per PH-003, coordination happens manually/outside the app for V1 — this entity exists to record status, not to power in-app scheduling.
+
+| Field | Type | Notes |
+|-------|------|-------|
+| id | identifier | |
+| order_id | reference | Links to Order |
+| method | enum | `pickup`, `delivery` |
+| status | enum | `pending`, `completed` |
+| completed_date | date | Optional |
+
+---
+
+# Relationships Summary
+
+- One **Inventory Lot** → many **Packaging Batches** (a lot may be packaged in stages)
+- One **Packaging Batch** → one **Product** (increases its Product Stock)
+- One **User** (customer) → many **Orders**
+- One **Order** → many **Order Items**
+- One **Order Item** → one **Product**
+- One **Order** → one **Pricing Reason**
+- One **Order** → one **Delivery**
+
+---
+
+# Deferred / Out of Scope for V1
+
+Consistent with PH-000's Version Scope, the following are intentionally not modeled yet:
+
+- Loyalty/points entities
+- Promotions/coupon entities
+- Wholesale customer or contract pricing entities
+- Supplier or farmer portal entities (Inventory Lot currently assumes manual entry by staff, not a supplier-facing system)
+- Barcode/SKU entities
+- Multi-branch/location entities
+- Driver-specific entities (Delivery is a simple status record, not a routing/assignment system)
+
+---
+
+# References
+
+- PH-000 Master Specification
+- PH-003 Customer Experience Specification
+
+---
+
+# Revision History
+
+| Version | Date | Summary |
+|---------|------|---------|
+| 1.0.0 | 2026-07-11 | Initial Data Specification covering V1 entities: User, Product, Inventory Lot, Packaging Batch, Product Stock, Pricing Reason, Order, Order Item, Delivery. |
