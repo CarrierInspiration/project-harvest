@@ -1,0 +1,144 @@
+---
+document_id: PH-003
+title: Customer Experience Specification
+version: 1.0.0
+status: Approved
+project: Project Harvest
+product: CAP Market
+company: Carrier's Abundant Produce
+author: Bryce Carrier
+created: 2026-07-11
+last_updated: 2026-07-11
+category: Specification
+tags:
+  - customer
+  - experience
+  - mvp
+related_documents:
+  - PH-000
+  - PH-001
+---
+
+# Customer Experience Specification
+
+## Purpose
+
+This document defines the minimum customer-facing experience required for Version 1 of CAP Market. It expands on the Target Users and Core Features sections of **PH-000 Master Specification**.
+
+Scope is intentionally minimal. Only what is needed to launch a working MVP is included here. Additional customer experience features (favorites, notifications, reordering, support) will be added to this document as they are needed.
+
+---
+
+# Primary User
+
+Customer — an individual purchasing rice for personal or family use.
+
+---
+
+# Core Flow
+
+The customer experience consists of four steps:
+
+1. Log in
+2. Browse available products
+3. Place an order
+4. View order confirmation
+
+---
+
+# Screen 1 — Login
+
+**Purpose**
+Allow a returning or new customer to access the app.
+
+**Method**
+Phone number login using a One-Time Password (OTP), per PH-000 Core Features.
+
+**Fields**
+- Phone number
+
+**Behavior**
+- Customer enters phone number.
+- System sends a one-time code via SMS.
+- Customer enters the code to log in.
+- If the phone number is new, a customer profile is created automatically. No separate signup form is required.
+
+**Edge Cases**
+- Invalid phone number format should be rejected with a clear message before an OTP is sent.
+- Expired or incorrect OTP should show a clear error and allow the customer to request a new code.
+
+---
+
+# Screen 2 — Browse Products
+
+**Purpose**
+Let the customer see what is currently available to purchase.
+
+**Content**
+For Version 1, this displays a single product: Nakonde rice, sold in 5 kg bags.
+
+Each product listing shows:
+- Product name
+- Unit size (e.g., 5 kg)
+- Price
+- Availability (in stock / out of stock)
+
+**Behavior**
+- If Nakonde rice is out of stock, it should still be visible but clearly marked as unavailable, not hidden.
+- Pricing shown to a given customer reflects that customer's assigned price, per the Pricing Reasons defined in PH-000's Business Model Reality section. Standard retail pricing (K150–K165) is the default for a new customer with no assigned discount reason.
+
+---
+
+# Screen 3 — Place Order
+
+**Purpose**
+Let the customer select a quantity and submit an order.
+
+**Fields**
+- Quantity (number of 5 kg bags)
+
+**Behavior**
+- Customer selects a quantity.
+- System shows the total price before the customer confirms.
+- Customer confirms the order.
+- Order is recorded as an Inventory Event per the *Every Action Is Recorded* Product Principle, reserving that quantity from available stock immediately upon confirmation.
+
+**Edge Cases**
+- Customer cannot order more bags than are currently in stock.
+- If available stock changes between browsing and confirming, the customer should see an updated availability message rather than being allowed to complete an invalid order.
+
+---
+
+# Screen 4 — Order Confirmation
+
+**Purpose**
+Confirm to the customer that their order was received.
+
+**Content**
+- Order summary (product, quantity, total price)
+- Order status (e.g., "Received")
+
+**Behavior**
+- This screen does not yet include delivery or pickup scheduling. Per PH-000 Version Scope, delivery scheduling exists as a future capability; for Version 1's minimal build, order fulfillment (delivery or pickup) is coordinated manually by the Owner outside the app.
+
+---
+
+# Explicitly Out of Scope for This Version
+
+The following are documented in PH-000 as future or later-phase features and are deliberately excluded from this specification:
+
+- Product search (only one product exists currently)
+- Shopping cart (single-product, single-line order only)
+- Order history / reordering
+- Favorites
+- Notifications
+- In-app delivery scheduling
+- Customer support flows
+
+---
+
+# Revision History
+
+| Version | Date | Summary |
+|---------|------|---------|
+| 1.0.0 | 2026-07-11 | Initial Customer Experience Specification, scoped to minimal MVP. |
